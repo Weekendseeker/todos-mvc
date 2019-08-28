@@ -1,0 +1,41 @@
+plugins {
+
+    id 'java'
+    id "org.flywaydb.flyway" version "6.0.0"
+
+}
+
+group 'org.marvin'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.7.RELEASE'
+    compile group: 'org.springframework.boot', name:'spring-boot-starter-jdbc', version: '2.1.7.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.7.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.7.RELEASE'
+
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.6'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.7.RELEASE'
+
+}
+
+flyway{
+
+    url = 'jdbc:postgresql://localhost:5432/testmigration'
+    user = 'postgres'
+    password = '1'
+
+}
+//spring.flyway.baseline-on-migrate=true
+//#spring.flyway.url= jdbc:postgresql://localhost:5432/todosDataBase
+//#spring.flyway.user=postgres
+//#spring.flyway.password=1
